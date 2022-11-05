@@ -1,8 +1,11 @@
 package com.udacity.project4.locationreminders.reminderslist
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.databinding.DataBindingUtil
+import com.google.android.gms.auth.api.Auth
 import com.udacity.project4.R
 import com.udacity.project4.base.BaseFragment
 import com.udacity.project4.base.NavigationCommand
@@ -11,6 +14,9 @@ import com.udacity.project4.utils.setDisplayHomeAsUpEnabled
 import com.udacity.project4.utils.setTitle
 import com.udacity.project4.utils.setup
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.firebase.ui.auth.AuthUI
+import com.udacity.project4.authentication.AuthenticationActivity
+import com.udacity.project4.locationreminders.RemindersActivity
 
 class ReminderListFragment : BaseFragment() {
     //use Koin to retrieve the ViewModel instance
@@ -72,6 +78,13 @@ class ReminderListFragment : BaseFragment() {
         when (item.itemId) {
             R.id.logout -> {
 //                TODO: add the logout implementation
+                AuthUI.getInstance()
+                    .signOut(this.requireContext())
+                    .addOnCompleteListener {
+                        val intent = Intent(this.context, AuthenticationActivity::class.java)
+                        startActivity(intent)
+                        this.activity?.finish()
+                    }
             }
         }
         return super.onOptionsItemSelected(item)
