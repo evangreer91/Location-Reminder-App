@@ -33,7 +33,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="API_KEY_HERE" />
+            android:value="AIzaSyB79PY9z6VfyTguwCu7yzoXdYLkPswz5mA" />
 
         <activity android:name=".authentication.AuthenticationActivity">
             <intent-filter>
