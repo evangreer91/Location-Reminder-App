@@ -1,8 +1,10 @@
 package com.udacity.project4.locationreminders
 
 import android.Manifest
+import android.annotation.TargetApi
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
